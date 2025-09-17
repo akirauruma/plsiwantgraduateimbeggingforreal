@@ -1,0 +1,42 @@
+name: C/C++ CI with Coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libgtest-dev \
+          build-essential \
+          lcov \
+          gcovr
+
+    - name: Compile with coverage
+      run: g++ -std=c++14 -fprofile-arcs -ftest-coverage -g -O0 main.cpp -o program -lgtest -lgtest_main -pthread
+
+    - name: Run tests
+      run: ./program test
+
+    - name: Generate coverage report
+      run: |
+        gcovr --root . --exclude-directories test --print-summary --xml -o coverage.xml
+        gcovr --root . --exclude-directories test --branches
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v5
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
