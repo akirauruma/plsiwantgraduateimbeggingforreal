@@ -1,2 +1,2 @@
-![C++ workflow](https://github.com/imitrichev/Training_2022/actions/workflows/c-cpp.yml/badge.svg)
-![My Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/imitrichev/25038fb53c9796ef9018d44ca597f1fd/raw/Training_2022_main.json)
+[![codecov](https://codecov.io/gh/change-and-live/studentsDataBase/graph/badge.svg?token=64b695ad-6bd9-4df0-b312-9d0ee331526c)](https://github.com/akirauruma/plsiwantgraduateimbeggingforreal/)
+
