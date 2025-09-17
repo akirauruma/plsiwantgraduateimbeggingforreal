@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include "gtest/gtest.h"
 
-// ----------------- Структура -----------------
 struct Student {
     std::string name;
     int age;
@@ -12,7 +11,6 @@ struct Student {
     double gpa;
 };
 
-// ----------------- Логика программы -----------------
 
 // Функция для добавления студента в базу данных
 void addStudent(std::vector<Student>& database) {
